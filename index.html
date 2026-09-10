@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Toko Kasir</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ===================== LOGIN ===================== -->
+  <div id="view-login" class="login-wrap hidden">
+    <div class="login-logo">🛒</div>
+    <div class="login-title">Toko Kasir</div>
+    <div class="login-sub">Masuk untuk mulai bertransaksi</div>
+    <div class="card">
+      <label>Username</label>
+      <input id="login-username" placeholder="Username">
+      <label>Password</label>
+      <div class="pw-wrap">
+        <input id="login-password" type="password" placeholder="Password">
+        <button class="pw-toggle" onclick="togglePw()">👁</button>
+      </div>
+      <div id="login-error" class="muted" style="color:var(--red);margin-bottom:8px;"></div>
+      <button class="btn btn-primary" onclick="doLogin()">Login</button>
+      <div style="text-align:center;margin-top:12px;font-size:13px;color:var(--primary);cursor:pointer;" onclick="toast('Hubungi owner untuk reset password')">Lupa password?</div>
+    </div>
+    <div style="text-align:center;font-size:12px;color:var(--muted);margin-top:10px;">Default: owner / owner123</div>
+  </div>
+
+  <!-- ===================== MAIN APP ===================== -->
+  <div id="view-main" class="hidden">
+    <div class="topbar">
+      <button class="icon-btn" onclick="openMenu()">☰</button>
+      <h1 id="page-title">Beranda</h1>
+      <button class="icon-btn" onclick="openMenu()">👤</button>
+    </div>
+    <div class="content" id="content"></div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <div class="bottom-nav hidden" id="bottom-nav">
+    <button class="nav-item" data-page="beranda" onclick="goPage('beranda')"><span class="ic">🏠</span><span class="lb">Beranda</span></button>
+    <button class="nav-item" data-page="kasir" onclick="goPage('kasir')"><span class="ic">🧾</span><span class="lb">Kasir</span></button>
+    <button class="nav-item" data-page="produk" onclick="goPage('produk')"><span class="ic">📦</span><span class="lb">Produk</span></button>
+    <button class="nav-item" data-page="keuangan" onclick="goPage('keuangan')"><span class="ic">💰</span><span class="lb">Keuangan</span></button>
+    <button class="nav-item" data-page="laporan" onclick="goPage('laporan')"><span class="ic">📊</span><span class="lb">Laporan</span></button>
+  </div>
+
+  <!-- Side menu sheet -->
+  <div class="sheet-overlay" id="menu-overlay" onclick="closeMenu()"></div>
+  <div class="sheet" id="menu-sheet">
+    <div class="sheet-handle"></div>
+    <div style="font-weight:700;font-size:15px;margin-bottom:6px;" id="menu-user-name">-</div>
+    <div class="muted" style="margin-bottom:10px;" id="menu-user-role">-</div>
+    <div class="menu-list-item" onclick="goPage('pelanggan')"><span class="ic">🧑‍🤝‍🧑</span> Pelanggan</div>
+    <div class="menu-list-item" onclick="goPage('supplier')"><span class="ic">🚚</span> Supplier</div>
+    <div class="menu-list-item" onclick="goPage('riwayat')"><span class="ic">🕘</span> Riwayat Transaksi</div>
+    <div class="menu-list-item" onclick="goPage('ditahan')"><span class="ic">⏸️</span> Transaksi Ditahan</div>
+    <div class="menu-list-item" onclick="goPage('user')"><span class="ic">👥</span> User & Kasir</div>
+    <div class="menu-list-item" onclick="goPage('ganti-password')"><span class="ic">🔒</span> Ganti Password</div>
+    <div class="menu-list-item" onclick="doLogout()"><span class="ic">🚪</span> Logout</div>
+  </div>
+
+  <!-- Generic bottom sheet for forms -->
+  <div class="sheet-overlay" id="form-overlay" onclick="closeFormSheet()"></div>
+  <div class="sheet" id="form-sheet"><div class="sheet-handle"></div><div id="form-sheet-content"></div></div>
+
+  <div class="toast" id="toast"></div>
+</div>
+
+<!-- Urutan pemuatan penting: config & util dulu, lalu nav, lalu setiap modul halaman, main.js paling akhir -->
+<script src="js/config.js"></script>
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/pages/auth.js"></script>
+<script src="js/pages/dashboard.js"></script>
+<script src="js/pages/kasir.js"></script>
+<script src="js/pages/produk.js"></script>
+<script src="js/pages/keuangan.js"></script>
+<script src="js/pages/laporan.js"></script>
+<script src="js/pages/riwayat.js"></script>
+<script src="js/pages/users.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
