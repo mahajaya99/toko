@@ -5,5 +5,5 @@
  * tempel di bawah ini. Lihat backend/DEPLOY.md untuk langkah lengkap.
  */
 const CONFIG = {
-  API_URL: 'GANTI_DENGAN_URL_WEB_APP_APPS_SCRIPT_ANDA'
+  API_URL: 'https://script.google.com/macros/s/AKfycbw16IJMsv5UGiu7MO_3YpZfO37cHuVQRhl0QgZCWNs7J91TnZ_vT5vAqkPVvsZzibRhTQ/exec'
 };
